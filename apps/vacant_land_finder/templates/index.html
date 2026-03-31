@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">Vacant Land Search</p>
+      <h1>{{ app_title }}</h1>
+      <p class="subtitle">Find nearby lots around a center point. Clean list, no clutter.</p>
+    </header>
+
+    <section class="panel">
+      <form id="search-form" class="form-grid">
+        <label>
+          Latitude
+          <input id="lat" name="lat" type="number" step="any" required />
+        </label>
+        <label>
+          Longitude
+          <input id="lng" name="lng" type="number" step="any" required />
+        </label>
+        <label>
+          Radius (km)
+          <input id="radius_km" name="radius_km" type="number" step="0.1" min="0.1" max="250" required />
+        </label>
+        <label class="check">
+          <input id="include_realtor" name="include_realtor" type="checkbox" checked />
+          Realtor.ca
+        </label>
+        <label class="check">
+          <input id="include_remax" name="include_remax" type="checkbox" checked />
+          RE/MAX
+        </label>
+        <button id="search-btn" type="submit">Search</button>
+      </form>
+    </section>
+
+    <section class="panel status-panel">
+      <p id="status-text">Ready.</p>
+      <p id="meta" class="meta"></p>
+    </section>
+
+    <section class="panel results">
+      <div class="results-head">
+        <h2>Listings</h2>
+        <p id="result-count">0 results</p>
+      </div>
+      <div id="results-list" class="list"></div>
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    window.APP_BOOTSTRAP = {{ {"defaults": defaults, "sources": sources}|tojson }};
+  </script>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+{% endblock %}

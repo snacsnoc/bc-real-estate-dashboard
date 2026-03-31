@@ -1,0 +1,16 @@
+{
+  "bbox": [48.2, 50.95, -118.6, -114.1],
+  "dataset": "kootenay_active",
+  "all_pages": true,
+  "size": 20,
+  "sort_key": 1,
+  "sort_direction": 0,
+  "province_filter": "BC",
+  "snapshot": true,
+  "tile_on_hits": true,
+  "tile_threshold": 2000,
+  "tile_rows": 2,
+  "tile_cols": 2,
+  "tile_max_depth": 2,
+  "debug": true
+}

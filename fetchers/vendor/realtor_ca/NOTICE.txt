@@ -1,0 +1,9 @@
+This project includes code patterns adapted from the following MIT-licensed projects:
+
+- https://github.com/harry-s-grewal/mls-real-estate-scraper-for-realtor.ca
+  Copyright (c) 2023 Harry Grewal
+
+- https://github.com/rachitt96/pyRealtor
+  Copyright (c) 2024 Rachit Trivedi
+
+See the accompanying LICENSE files in this directory.

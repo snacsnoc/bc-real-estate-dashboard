@@ -1,0 +1,18 @@
+{
+  "boc_groups": [
+    "chartered_bank_interest",
+    "bond_yields_benchmark"
+  ],
+  "boc_series": [
+    "V39079"
+  ],
+  "boc_aliases": {
+    "policy_target": "V39079",
+    "prime": "V80691311",
+    "mortgage_1y": "V80691333",
+    "mortgage_3y": "V80691334",
+    "mortgage_5y": "V80691335"
+  },
+  "statcan_vector": 1642733899,
+  "statcan_start": "2015-01"
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kootenay Market Pulse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="glow"></div>
+    <header class="hero" data-animate>
+      <div class="hero-strip">
+        <div class="hero-tags">
+          <span class="tag mls">MLS® Market Report</span>
+          <span class="tag" id="region-label">BC Interior / Kootenays</span>
+          <span class="tag" id="as-of">As of —</span>
+        </div>
+        <div class="source-picker">
+          <label for="source-select">Source</label>
+          <select id="source-select"></select>
+        </div>
+      </div>
+      <h1>Kootenay Market Pulse</h1>
+      <p class="hero-subtitle" id="hero-subtitle">
+        Active inventory, sold momentum, and pricing stress indicators from
+        Realtor.ca snapshots.
+      </p>
+      <p class="hero-remark">
+        Broker remarks: no staged photos, just MLS® aggregates and market pulse.
+      </p>
+      <div class="hero-stats" id="hero-stats"></div>
+    </header>
+
+    <main>
+      <section class="panel" id="inventory" data-animate>
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Inventory</p>
+            <h2>Active Supply Snapshot</h2>
+          </div>
+          <p class="panel-subtitle">What is listed right now, broken down by mix.</p>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <h3 id="inventory-type-title">By Property Type</h3>
+            <div class="bar-list" id="inventory-by-type"></div>
+          </div>
+          <div class="card">
+            <h3>By Price Band</h3>
+            <div class="bar-list" id="inventory-by-price"></div>
+          </div>
+          <div class="card">
+            <h3 id="inventory-area-title">Top Areas</h3>
+            <div class="bar-list" id="inventory-by-area"></div>
+          </div>
+          <div class="card" id="market-state-card">
+            <h3>Market State</h3>
+            <div class="market-state" id="market-state"></div>
+          </div>
+          <div class="card">
+            <h3>Snapshot Drift</h3>
+            <div class="diff" id="snapshot-diff">
+              <p class="muted">No snapshot diff loaded yet.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="momentum" data-animate>
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Momentum</p>
+            <h2 id="momentum-title">Sold Velocity</h2>
+          </div>
+          <p class="panel-subtitle" id="momentum-subtitle">Rolling sale counts to show demand pressure.</p>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <h3 id="recent-title">Recent Sales</h3>
+            <div class="metric-grid" id="recent-sales"></div>
+          </div>
+          <div class="card">
+            <h3 id="momentum-spark-title">Monthly Sold Trend</h3>
+            <div class="sparkline" id="sold-sparkline"></div>
+            <div class="series-list" id="sold-monthly-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="pricing" data-animate>
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Pricing</p>
+            <h2 id="pricing-title">Price Direction</h2>
+          </div>
+          <p class="panel-subtitle" id="pricing-subtitle">Sold vs active list price trends by month.</p>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <h3 id="pricing-card-title">Median Sold vs List</h3>
+            <div class="sparkline" id="price-sparkline"></div>
+            <div class="legend" id="price-legend">
+              <span><span class="dot sold"></span>Sold median</span>
+              <span><span class="dot active"></span>Active median</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Price Band Mix (Latest Month)</h3>
+            <div class="band-grid" id="price-band-mix"></div>
+          </div>
+          <div class="card" id="ir-stats-card">
+            <h3 id="ir-stats-title">IR Price + DOM by Type</h3>
+            <div class="type-metrics" id="ir-type-metrics"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="macro" data-animate>
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Macro</p>
+            <h2>Rates & Labour</h2>
+          </div>
+          <p class="panel-subtitle">Policy rates, mortgage pricing, and unemployment trends.</p>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <h3>Rates</h3>
+            <div class="metric-grid" id="rates-metrics"></div>
+            <div class="sparkline" id="rates-sparkline"></div>
+            <div class="series-list" id="rates-series"></div>
+          </div>
+          <div class="card">
+            <h3>Unemployment</h3>
+            <div class="metric-grid" id="labour-metrics"></div>
+            <div class="sparkline" id="labour-sparkline"></div>
+            <div class="series-list" id="labour-series"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="absorption" data-animate>
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Absorption</p>
+            <h2>Sold vs Active Ratio</h2>
+          </div>
+          <p class="panel-subtitle">30-day sold volume relative to inventory.</p>
+        </div>
+        <div class="card">
+          <div class="table" id="absorption-table"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="tom" data-animate>
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Time on Market</p>
+            <h2 id="tom-title">Speed of Sales</h2>
+          </div>
+          <p class="panel-subtitle" id="tom-subtitle">Approximate DOM from Realtor.ca metadata.</p>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <h3>Active Listings</h3>
+            <div class="metric-stack" id="tom-active"></div>
+          </div>
+          <div class="card" id="tom-sold-card">
+            <h3>Sold Listings</h3>
+            <div class="metric-stack" id="tom-sold"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" data-animate>
+      <div>
+        <p class="muted" id="footer-source">Generated from `data/derived/realtor_ca/`.</p>
+        <p class="muted" id="generated-at"></p>
+      </div>
+      <div class="footer-right">
+        <span class="tag">Local viewer</span>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

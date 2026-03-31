@@ -1,0 +1,19 @@
+{
+  "bbox": [48.2, 50.95, -118.6, -114.1],
+  "cookie_file": "./cookiefile.txt",
+  "province_filter": "British Columbia",
+  "all_pages": true,
+  "max_pages": 1,
+  "active_records_per_page": 200,
+  "sold_records_per_page": 200,
+  "sold_within_days": 730,
+  "sold_dataset": "sold_730",
+  "snapshot": true,
+  "max_results": 600,
+  "zoom_level": 9,
+  "tile_on_cap": true,
+  "tile_rows": 2,
+  "tile_cols": 2,
+  "tile_max_depth": 2,
+  "debug": true
+}
